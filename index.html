@@ -152,15 +152,35 @@
     const ul = document.getElementById("userList")
 
     for (let i = 0; i < arr.length; i++){
+
         let li = document.createElement("li")
+        let idDiv = document.createElement("div")
+        idDiv.style.paddingRight= "10px"
+        let nameDiv = document.createElement("div")
+        nameDiv.style.width= "200px"
+
+        let proDiv = document.createElement("div")
+        proDiv.style.width= "300px"
+
+        let ageDiv = document.createElement("div")
+        ageDiv.style.width= "100px"
 
         let obj = arr[i]
-        li.textContent = obj.id + ".       Name: " + obj.name + "       Profession: " + obj.profession + "       Age: " + obj.age
+        idDiv.textContent = obj.id + "."
+        nameDiv.textContent = "Name: " + obj.name
+        proDiv.textContent = "Profession: " + obj.profession
+        ageDiv.textContent = "Age: " + obj.age
+
+ 
+        li.appendChild(idDiv)
+        li.appendChild(nameDiv)
+        li.appendChild(proDiv)
+        li.appendChild(ageDiv)
 
 
+        // li.style.gap = "30px"
         li.style.border= '1px solid white'
         li.style.marginBottom = '20px'
-        // li.style.padding = '15px'
         li.style.borderRadius = '10px'
         li.style.fontSize ="18px"
         li.style.height = "59px"
@@ -191,11 +211,33 @@
         ul.innerHTML = "";
         for (let i = 0; i < arr.length; i++){
             let li = document.createElement("li")
+            let idDiv = document.createElement("div")
+            idDiv.style.paddingRight= "10px"
+            let nameDiv = document.createElement("div")
+            nameDiv.style.width= "200px"
+
+            let proDiv = document.createElement("div")
+            proDiv.style.width= "300px"
+
+            let ageDiv = document.createElement("div")
+            ageDiv.style.width= "100px"
+
             let obj = arr[i]
-            li.textContent = obj.id + ".       Name: " + obj.name + "       Profession: " + obj.profession + "       Age: " + obj.age
+            idDiv.textContent = obj.id + "."
+            nameDiv.textContent = "Name: " + obj.name
+            proDiv.textContent = "Profession: " + obj.profession
+            ageDiv.textContent = "Age: " + obj.age
+
+    
+            li.appendChild(idDiv)
+            li.appendChild(nameDiv)
+            li.appendChild(proDiv)
+            li.appendChild(ageDiv)
+
+
+            // li.style.gap = "30px"
             li.style.border= '1px solid white'
             li.style.marginBottom = '20px'
-            // li.style.padding = '15px'
             li.style.borderRadius = '10px'
             li.style.fontSize ="18px"
             li.style.height = "59px"
@@ -203,9 +245,6 @@
             li.style.width ='536px'
             li.style.alignItems = 'center'
             li.style.paddingLeft = '12px'
-            ul.appendChild(li);
-
-    
             ul.appendChild(li);
         }
     })
@@ -224,11 +263,33 @@
         for (let i = 0; i < arr.length; i++){
             if (select.value.toLowerCase() === arr[i].profession.toLowerCase()) {
                 let li = document.createElement("li")
+                let idDiv = document.createElement("div")
+                idDiv.style.paddingRight= "10px"
+                let nameDiv = document.createElement("div")
+                nameDiv.style.width= "200px"
+
+                let proDiv = document.createElement("div")
+                proDiv.style.width= "300px"
+
+                let ageDiv = document.createElement("div")
+                ageDiv.style.width= "100px"
+
                 let obj = arr[i]
-                li.textContent = obj.id + ".       Name: " + obj.name + "       Profession: " + obj.profession + "       Age: " + obj.age
+                idDiv.textContent = obj.id + "."
+                nameDiv.textContent = "Name: " + obj.name
+                proDiv.textContent = "Profession: " + obj.profession
+                ageDiv.textContent = "Age: " + obj.age
+
+        
+                li.appendChild(idDiv)
+                li.appendChild(nameDiv)
+                li.appendChild(proDiv)
+                li.appendChild(ageDiv)
+
+
+                // li.style.gap = "30px"
                 li.style.border= '1px solid white'
                 li.style.marginBottom = '20px'
-                // li.style.padding = '15px'
                 li.style.borderRadius = '10px'
                 li.style.fontSize ="18px"
                 li.style.height = "59px"
@@ -236,9 +297,6 @@
                 li.style.width ='536px'
                 li.style.alignItems = 'center'
                 li.style.paddingLeft = '12px'
-                ul.appendChild(li);
-
-        
                 ul.appendChild(li);
             }
         }
