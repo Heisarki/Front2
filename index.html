@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Frontend 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
 
     <style>
+        h1 {
+            font-size: 24px;
+            font-weight: 300;
+        }
         body{
+            font-family: "Inter", sans-serif;
             background-color: black;
             color: white;
             display: flex;
@@ -27,6 +34,9 @@
             padding: 10px 30px;
             outline: none;
             border: none;
+            font-size: 24px;
+            width: 226px;
+
         }
         select {
             padding: 10px ;
@@ -39,6 +49,11 @@
             background-color: black;
             border-radius: 2px;
             color: white;
+            width: 531px;
+            height: 56px;
+        }
+        label {
+            font-size: 18px;
         }
 
         .input-field {
@@ -56,8 +71,8 @@
         </header>
         <!-- Select -->
         <div>
-            <select name="profession" id="profession">
-                <option  hidden selected >Profession</option>
+            <select style="font-size: 24px;" name="profession" id="profession">
+                <option  hidden selected value="">Profession</option>
                 <option value="Developer">Developer</option>
                 <option value="Admin">Admin</option>
               </select>
@@ -78,13 +93,14 @@
         </div>
 
         <!-- Add user -->
-        <div>
+        <div style="margin-top: 50px;">
             <h1>Add a new user</h1>
             <div style="
                 display: flex;
                 gap: 20px;
-                flex-grow: 1;
                 width: 100%;
+                /* flex-wrap: wrap; */
+                flex-direction: row;
             "
             >
                 <div class="input-field">
@@ -102,7 +118,7 @@
             </div>
         </div>
 
-        <div>
+        <div style="margin-top: 20px;">
             <button id="add-new-user"  >Add User</button>
         </div>
 
@@ -135,12 +151,21 @@
 
     for (let i = 0; i < arr.length; i++){
         let li = document.createElement("li")
+
         let obj = arr[i]
         li.textContent = obj.id + ".       Name: " + obj.name + "       Profession: " + obj.profession + "       Age: " + obj.age
+
+
         li.style.border= '1px solid white'
         li.style.marginBottom = '20px'
-        li.style.padding = '15px'
+        // li.style.padding = '15px'
         li.style.borderRadius = '10px'
+        li.style.fontSize ="18px"
+        li.style.height = "59px"
+        li.style.display = 'flex'
+        li.style.width ='536px'
+        li.style.alignItems = 'center'
+        li.style.paddingLeft = '12px'
         ul.appendChild(li);
     }
 
@@ -168,8 +193,16 @@
             li.textContent = obj.id + ".       Name: " + obj.name + "       Profession: " + obj.profession + "       Age: " + obj.age
             li.style.border= '1px solid white'
             li.style.marginBottom = '20px'
-            li.style.padding = '15px'
+            // li.style.padding = '15px'
             li.style.borderRadius = '10px'
+            li.style.fontSize ="18px"
+            li.style.height = "59px"
+            li.style.display = 'flex'
+            li.style.width ='536px'
+            li.style.alignItems = 'center'
+            li.style.paddingLeft = '12px'
+            ul.appendChild(li);
+
     
             ul.appendChild(li);
         }
@@ -178,7 +211,13 @@
     const select = document.getElementById("profession")
     
     function handleFilterClick() {
-        console.log("CLCIK")
+        console.log(select.value)
+
+        if (select.value === ""){
+            alert("Please select a Profession")
+            return
+        }
+
         ul.innerHTML = "";
         for (let i = 0; i < arr.length; i++){
             if (select.value.toLowerCase() === arr[i].profession.toLowerCase()) {
@@ -187,8 +226,16 @@
                 li.textContent = obj.id + ".       Name: " + obj.name + "       Profession: " + obj.profession + "       Age: " + obj.age
                 li.style.border= '1px solid white'
                 li.style.marginBottom = '20px'
-                li.style.padding = '15px'
+                // li.style.padding = '15px'
                 li.style.borderRadius = '10px'
+                li.style.fontSize ="18px"
+                li.style.height = "59px"
+                li.style.display = 'flex'
+                li.style.width ='536px'
+                li.style.alignItems = 'center'
+                li.style.paddingLeft = '12px'
+                ul.appendChild(li);
+
         
                 ul.appendChild(li);
             }
