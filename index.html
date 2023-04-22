@@ -5,8 +5,205 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        body{
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            background-color: white;
+            padding: 10px 30px;
+            outline: none;
+            border: none;
+        }
+        select {
+            padding: 10px ;
+            background-color: black;
+            color: white;
+        }
+        input {
+            padding: 10px 5px;
+            border: 1px solid white;
+            background-color: black;
+            border-radius: 2px;
+            color: white;
+        }
+
+        .input-field {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    
+    <section>
+        <header >
+            <h1>Filter ui cards via their profession</h1>
+        </header>
+        <!-- Select -->
+        <div>
+            <select name="profession" id="cars">
+                <option  hidden selected >Profession</option>
+                <option value="Developer">Developer</option>
+                <option value="Admin">Admin</option>
+              </select>
+        </div>
+
+        <!-- Users -->
+        <div>
+            <ul id="userList"
+            style="
+                list-style: none;
+            "
+            >
+
+            </ul>
+        </div>
+        <div>
+            <button onclick="handleFilterClick()">Filter</button>
+        </div>
+
+        <!-- Add user -->
+        <div>
+            <h1>Add a new user</h1>
+            <div style="
+                display: flex;
+                gap: 20px;
+                flex-grow: 1;
+                width: 100%;
+            "
+            >
+                <div class="input-field">
+                    <label for="name">Enter Name</label>
+                    <input id="name" type="text"/>
+                </div>
+                <div class="input-field">
+                    <label for="profession">Enter Profession</label>
+                    <input id="profession" type="text"/>
+                </div>
+                <div class="input-field">
+                    <label for="age">Enter Age</label>
+                    <input id="age" type="text"/>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button id="add-new-user"  >Add User</button>
+        </div>
+
+    </section>
 </body>
+<script>
+    const arr = [
+        {
+            id:1, 
+            name:"john",
+            age:"18",
+            profession:"developer"
+        },
+        {
+            id:2, 
+            name:"jack",
+            age:"20", 
+            profession:"developer"
+        },
+        {
+            id:3, 
+            name:"karen", 
+            age:"19",
+            profession:"admin"
+        }
+    ]
+
+    
+    const ul = document.getElementById("userList")
+    for (let i = 0; i < arr.length; i++){
+        let li = document.createElement("li")
+        let obj = arr[i]
+        li.textContent = obj.id + ".       Name: " + obj.name + "       Profession: " + obj.profession + "       Age: " + obj.age
+        li.style.border= '1px solid white'
+        li.style.marginBottom = '20px'
+        li.style.padding = '15px'
+        li.style.borderRadius = '10px'
+        ul.appendChild(li);
+    }
+
+
+    // function displayList() {
+    //     for (let i = 0; i < arr.length; i++){
+    //     let li = document.createElement("li")
+    //     let obj = arr[i]
+    //     li.textContent = obj.id + ".       Name: " + obj.name + "       Profession: " + obj.profession + "       Age: " + obj.age
+    //     li.style.border= '1px solid white'
+    //     li.style.marginBottom = '20px'
+    //     li.style.padding = '15px'
+    //     li.style.borderRadius = '10px'
+
+
+    //     ul.appendChild(li);
+    // }
+    // displayList()
+
+    // }
+
+    function handleFilterClick() {
+        console.log("CLCIK")
+    }
+
+
+    const name = document.getElementById("name")
+    const profession = document.getElementById("profession")
+    const age = document.getElementById("age")
+
+
+    const addButton = document.getElementById("add-new-user")
+
+    addButton.addEventListener("click", () => {
+        arr.push({
+            id: arr.length+1,
+            name: name.value,
+            age: age.value,
+            profession: profession.value
+        })
+    })
+
+    ul.innerHTML = "";
+    for (let i = 0; i < arr.length; i++){
+        let li = document.createElement("li")
+        let obj = arr[i]
+        li.textContent = obj.id + ".       Name: " + obj.name + "       Profession: " + obj.profession + "       Age: " + obj.age
+        li.style.border= '1px solid white'
+        li.style.marginBottom = '20px'
+        li.style.padding = '15px'
+        li.style.borderRadius = '10px'
+
+        ul.appendChild(li);
+    }
+    
+    // function addUser() {
+    //     arr.push({
+    //         id: arr.length+1,
+    //         name: name.value,
+    //         age: age.value,
+    //         profession: profession.value
+    //     })
+    //     console.log(arr)
+    //     displayList()
+    // }
+</script>
 </html>
