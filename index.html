@@ -180,20 +180,20 @@
             age: age.value,
             profession: profession.value
         })
+        ul.innerHTML = "";
+        for (let i = 0; i < arr.length; i++){
+            let li = document.createElement("li")
+            let obj = arr[i]
+            li.textContent = obj.id + ".       Name: " + obj.name + "       Profession: " + obj.profession + "       Age: " + obj.age
+            li.style.border= '1px solid white'
+            li.style.marginBottom = '20px'
+            li.style.padding = '15px'
+            li.style.borderRadius = '10px'
+    
+            ul.appendChild(li);
+        }
     })
 
-    ul.innerHTML = "";
-    for (let i = 0; i < arr.length; i++){
-        let li = document.createElement("li")
-        let obj = arr[i]
-        li.textContent = obj.id + ".       Name: " + obj.name + "       Profession: " + obj.profession + "       Age: " + obj.age
-        li.style.border= '1px solid white'
-        li.style.marginBottom = '20px'
-        li.style.padding = '15px'
-        li.style.borderRadius = '10px'
-
-        ul.appendChild(li);
-    }
     
     // function addUser() {
     //     arr.push({
